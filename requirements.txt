@@ -4,3 +4,4 @@ youtube_dl
 requests==2.25.1
 gunicorn
 urllib3
+werkzeug==2.0.2
