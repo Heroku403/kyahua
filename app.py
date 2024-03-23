@@ -40,7 +40,7 @@ def checker_page():
     try:
         chk_type = request.args['type']
     except:
-        return "<font color=red size=15>Wrong Video Type</font> <br> ask at @JV_Community in Telegram"
+        return "<font color=red size=15>Wrong Video Type</font> <br> ask at @Eliteflix_Official in Telegram"
     if chk_type.lower() == "mpd":
         return mpd()
     if chk_type.lower() == "m3u8":
@@ -72,7 +72,7 @@ def youtube():
         try:
             video_id = b64_to_str(video_id)
         except:
-            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @JV_Community in Telegram"
+            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @Eliteflix_Official in Telegram"
     if ("youtube.com" in video_id) and ("/" in video_id) and ("=" in video_id):
         url = video_id
     elif ("youtu.be" in video_id) and ("/" in video_id):
@@ -111,7 +111,7 @@ def jw_payer():
         try:
             video_id = b64_to_str(video_id)
         except:
-            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @JV_Community in Telegram"
+            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @Eliteflix_Official in Telegram"
     jw_url = "https://cdn.jwplayer.com/v2/media"
     video_response = requests.get(f"{jw_url}/{video_id}")
     if video_response.status_code != 200:
@@ -142,7 +142,7 @@ def play():
         try:
             video_id = b64_to_str(video_id)
         except:
-            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @JV_Community in Telegram"
+            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @Eliteflix_Official in Telegram"
     video_url = video_id
     track_url = video_id
     video_name = video_id.split("/")[-1]
@@ -171,7 +171,7 @@ def m3u8():
         try:
             video_url = b64_to_str(video_url)
         except:
-            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @JV_Community in Telegram"
+            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @Eliteflix_Official in Telegram"
     return render_template(
         "m3u8.html",
         video_url=video_url,
@@ -195,7 +195,7 @@ def mpd():
         try:
             video_url = b64_to_str(video_url)
         except:
-            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @JV_Community in Telegram"
+            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @Eliteflix_Official in Telegram"
     return render_template(
         "mpd.html",
         video_url=video_url,
@@ -212,7 +212,7 @@ def decoder_():
     try:
         video_url = b64_to_str(video_url)
     except:
-        return "<font color=red size=15>Wrong Video ID</font> <br> ask at @JV_Community in Telegram"
+        return "<font color=red size=15>Wrong Video ID</font> <br> ask at @Eliteflix_Official in Telegram"
     return {"decoded": video_url}
 
 @app.route("/encode")
@@ -242,7 +242,7 @@ def brightcove():
         try:
             video_url = b64_to_str(video_url)
         except:
-            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @JV_Community in Telegram"
+            return "<font color=red size=15>Wrong Video ID</font> <br> ask at @Eliteflix_Official in Telegram"
     bc_url = f"https://edge.api.brightcove.com/playback/v1/accounts/{ACCOUNT_ID}/videos"
     bc_hdr = {"BCOV-POLICY": BCOV_POLICY}
     video_response = requests.get(f"{bc_url}/{video_url}", headers=bc_hdr)
